@@ -8,10 +8,11 @@ import "./Posts.css";
 
 // pass props in this file to
 const Post = props => {
-  const { username, thumbnailUrl, imageUrl, comments, likes } = props.postContent;
+  let { username, thumbnailUrl, imageUrl, comments, likes} = props.postContent;
   // set up state for the likes
   const [numLikes, setNumLikes] = useState(likes);
   const [isLiked, setIsLiked] = useState(false)
+  
   const changeNumLikes = () => {
     isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1)
     setIsLiked(!isLiked);
@@ -36,6 +37,7 @@ const Post = props => {
         postId={imageUrl}
         comments={comments}
       />
+      {console.log(comments, likes)}
     </div>
   );
 };

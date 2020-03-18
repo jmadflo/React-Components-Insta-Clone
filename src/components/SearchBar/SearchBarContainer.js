@@ -2,7 +2,25 @@
 import React from "react";
 import "./SearchBar.css";
 
-const SearchBar = props => {
+const SearchBar = ({renderedData, setRenderedData, originalData}) => {
+  const searchData = event => {
+    if (event.target.value !== ""){
+      let filteredPosts = renderedData.filter(post => {
+        let commentsText = post.comments.map(comment => {
+          return comment.text
+        })
+        commentsText = commentsText.join('')
+        if (post.username.includes(event.target.value) || commentsText.includes(event.target.value)){
+          return post
+        }
+      })
+      setRenderedData(filteredPosts)
+    } else {
+      setRenderedData(originalData)
+    }
+    
+  }
+  
   return (
     <div className="search-bar-wrapper">
       <div className="image-wrapper">
@@ -11,9 +29,8 @@ const SearchBar = props => {
       <form className="search-form">
         <input
           type="text"
-          value={props.searchText}
           placeholder="Search"
-          onChange={(event) => props.setSearchText(event.target.value) }
+          onChange={searchData}
         />
       </form>
       <div className="social-wrapper">

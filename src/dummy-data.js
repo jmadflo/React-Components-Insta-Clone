@@ -44,6 +44,27 @@ const dummyData = [
                 text: "It that injustice"
             }
         ]
+    },
+    {
+        username: "user number 3",
+        thumbnailUrl: 'https://icon2.cleanpng.com/20180320/sqe/kisspng-twitch-computer-icons-streaming-media-youtube-live-tv-twitch-icon-5ab19172461392.001176751521586546287.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3750&q=80',
+        likes: 45,
+        timestamp: "July 15th 2018, 03:12:09 pm",
+        comments: [
+            {
+                username: "cooluser",
+                text: "bananas are great"
+            },
+            {
+                username: "coronavirus",
+                text: "I'm super annoying"
+            },
+            {
+                username: "Joe Biden",
+                text: "I'm tired of winning"
+            }
+        ]
     }
 ];
 
