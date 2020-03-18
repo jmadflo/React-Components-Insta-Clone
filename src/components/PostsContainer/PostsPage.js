@@ -6,13 +6,21 @@ import "./Posts.css";
 // import data 
 import userData from "../../dummy-data";
 
-const PostsPage = () => {
+const PostsPage = (props) => {
   // set up state for your data
   const [data] = useState(userData);
+  let posts = [];
+  
+  posts = data.map((singlePost, index) => <Post postContent={singlePost} key={index}/>)
+  if (props.searchText === "") {
+    posts = posts.filter(post => post.username.includes(props.searchText))
+  }
+
   return (
     <div className="posts-container-wrapper">
       {/* map through data here to return a Post and pass data as props to Post */
-      data.map((singlePost, index) => <Post postContent={singlePost} key={index}/>)}
+        posts
+      }
     </div>
   );
 };

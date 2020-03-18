@@ -13,7 +13,7 @@ const CommentSection = props => {
       username: 'New User',
       text: newCommentText
     }]
-    changeComments(comments.join(newComment))
+    changeComments(comments.concat(newComment))
   }
 
   return (

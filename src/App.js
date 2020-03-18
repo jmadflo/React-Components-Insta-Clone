@@ -12,10 +12,11 @@ import SearchBar from "./components/SearchBar/SearchBarContainer"
 
 
 const App = () => {
+  const [searchText, setSearchText] = React.useState("");
   return (
     <div className="App">
-      <SearchBar />
-      <PostsPage />
+      <SearchBar searchText={searchText} setSearchText={setSearchText}/>
+      <PostsPage searchText={searchText}/>
     </div>
   );
 };

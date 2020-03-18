@@ -2,7 +2,7 @@
 import React from "react";
 import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = props => {
   return (
     <div className="search-bar-wrapper">
       <div className="image-wrapper">
@@ -11,7 +11,9 @@ const SearchBar = () => {
       <form className="search-form">
         <input
           type="text"
+          value={props.searchText}
           placeholder="Search"
+          onChange={(event) => props.setSearchText(event.target.value) }
         />
       </form>
       <div className="social-wrapper">
