@@ -1,5 +1,5 @@
 // You will add code in this file
-import React, { useState }from "react";
+import React, { useState, useEffect }from "react";
 import CommentSection from "../CommentSection/CommentSectionContainer";
 import LikeSection from "./LikeSection";
 import PostHeader from "./PostHeader";
@@ -12,6 +12,11 @@ const Post = props => {
   // set up state for the likes
   const [numLikes, setNumLikes] = useState(likes);
   const [isLiked, setIsLiked] = useState(false)
+  
+
+  useEffect(() => {
+    setNumLikes(likes)
+  }, [likes])
   
   const changeNumLikes = () => {
     isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1)
