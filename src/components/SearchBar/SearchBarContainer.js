@@ -6,13 +6,9 @@ const SearchBar = ({renderedData, setRenderedData, originalData}) => {
   const searchData = event => {
     if (event.target.value !== ""){
       let filteredPosts = renderedData.filter(post => {
-        let commentsText = post.comments.map(comment => {
-          return comment.text
-        })
+        let commentsText = post.comments.map(comment => comment.text)
         commentsText = commentsText.join('')
-        if (post.username.includes(event.target.value) || commentsText.includes(event.target.value)){
-          return post
-        }
+        return post.username.includes(event.target.value) || commentsText.includes(event.target.value)
       })
       setRenderedData(filteredPosts)
     } else {

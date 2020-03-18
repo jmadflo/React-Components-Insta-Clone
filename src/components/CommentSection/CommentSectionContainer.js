@@ -15,7 +15,7 @@ const CommentSection = props => {
   //   }]
   //   changeComments(comments.concat(newComment))
   // }
-  console.log(props.currentComments, comments)
+  // console.log(props.currentComments, comments)
   useEffect(() => {
     setComments(props.currentComments)
   }, [props.currentComments])
