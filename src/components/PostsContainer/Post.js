@@ -12,12 +12,13 @@ const Post = props => {
   // set up state for the likes
   const [numLikes, setNumLikes] = useState(likes);
   const [isLiked, setIsLiked] = useState(false)
-  
+  const [currentComments, setCurrentComments] = useState(comments)
 
   useEffect(() => {
     setNumLikes(likes)
-  }, [likes])
-  
+    setCurrentComments(comments)
+  }, [likes, comments])
+
   const changeNumLikes = () => {
     isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1)
     setIsLiked(!isLiked);
@@ -40,9 +41,9 @@ const Post = props => {
       <LikeSection likes={numLikes} likeChanger={changeNumLikes}/>
       <CommentSection
         postId={imageUrl}
-        comments={comments}
+        currentComments={currentComments}
       />
-      {console.log(comments, likes)}
+      
     </div>
   );
 };

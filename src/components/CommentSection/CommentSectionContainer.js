@@ -1,12 +1,12 @@
 // You will add code to this file
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CommentInput from "./CommentInput";
 import Comment from "./Comment";
 import "./Comment.css";
 
 const CommentSection = props => {
   // Add state for the comments
-  const [comments/*, changeComments*/] = useState(props.comments)
+  const [comments, setComments] = useState(props.currentComments)
   // console.log(comments)
   // const addComment = (newCommentText) => {
   //   let newComment = [{
@@ -15,6 +15,10 @@ const CommentSection = props => {
   //   }]
   //   changeComments(comments.concat(newComment))
   // }
+  console.log(props.currentComments, comments)
+  useEffect(() => {
+    setComments(props.currentComments)
+  }, [props.currentComments])
 
   return (
     <div>
